@@ -1,0 +1,519 @@
+@charset "UTF-8";
+/* Ensure the body and container styles remain the same */
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f4f6f9;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start; /* Align to top to avoid truncation */
+	min-height: 100vh;
+	width: 95%;
+	box-sizing: border-box;
+}
+
+h3 {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 1rem;
+	font-weight: 300;
+	color: #333;
+	padding-bottom: 1px;
+	border-bottom: 2px solid #007bff;
+	margin-bottom: 20px;
+	letter-spacing: 0.5px;
+}
+
+#vsmChart {
+	overflow-x: auto; /* Add this to enable horizontal scrolling */
+	padding-top: 10px;
+}
+
+.container {
+	background-color: #ffffff;
+	padding: 15px;
+	border-radius: 8px;
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+	width: 90%;
+	overflow-x: auto;
+	/* Enables horizontal scrolling when the content exceeds the container's width */
+}
+
+.elementsContainer {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 15px;
+	margin: 2px;
+	width: 95%;
+	overflow: auto;
+}
+
+/* Container for buttons */
+.button-container {
+	display: flex; /* Enables flexbox layout */
+	justify-content: center; /* Horizontally center the content */
+	flex-wrap: wrap;
+	width: 100%; /* Ensure container takes full width */
+	gap: 10px; /* Optional: Adds space between buttons */
+}
+
+h1 {
+	text-align: center;
+	color: #333;
+	margin-bottom: 15px;
+	font-size: 18px; /* Adjusted font size */
+}
+
+.input-container {
+	margin-bottom: 6px;
+	padding: 8px;
+	background-color: #f0f2f5;
+	border-radius: 8px;
+	width: 90%;
+	position: relative;
+	overflow: hidden;
+}
+
+.input-container inout {
+	margin-right: 8px;
+	padding: 4px 6px;
+	font-size: 12px; /* Adjusted font size */
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+
+.comments {
+	margin-right: 8px;
+	padding: 4px 6px;
+	font-size: 12px; /* Adjusted font size */
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	width: 300px;
+}
+
+.input-container input.readonly-input {
+	background-color: #f7f9fc;
+}
+
+.input-container button {
+	padding: 4px 8px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 12px; /* Adjusted font size */
+	transition: background-color 0.3s ease;
+	height: 20px; /* Adjusted height to 20px */
+	margin-left: 10px;
+}
+
+/* Hover effect for buttons */
+.input-container button:hover {
+	background-color: #45a049;
+}
+
+.input-container button:hover {
+	background-color: #45a049;
+}
+
+input[type="checkbox" i] {
+	background-color: transparent; /* Ensures no background color */
+	cursor: pointer;
+	/* Makes the cursor a hand when hovering over the checkbox */
+	appearance: checkbox; /* Ensures consistent styling across browsers */
+	box-sizing: border-box;
+	/* Ensures padding and border are included in the element's total width and height */
+	margin: 0px 0px 1px 1px; /* Provides space around the checkbox */
+	padding: 0; /* Resets any default padding */
+	border: 1px solid #ccc; /* Adds a light border for better visibility */
+	border-radius: 4px; /* Rounded corners for the checkbox */
+	outline: none;
+	/* Removes the focus outline, can be customized if needed */
+}
+
+.task-container {
+	margin-left: 15px;
+	margin-top: 5px;
+}
+
+.task-container .task {
+	background-color: #e9ecef;
+	padding: 5px;
+	border-radius: 8px;
+	margin-top: 1px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 90%;
+}
+
+.task button {
+	width: 200px;
+}
+
+.task-container .task input, .task-container {
+	margin-right: 1px;
+	padding: 4px 6px;
+	font-size: 12px; /* Adjusted font size */
+	border-radius: 5px;
+	/* border: 1px solid #ddd;*/
+	width: 180px;
+}
+
+.task label {
+	margin-right: 1px;
+	padding: 4px 6px;
+	font-size: 12px; /* Adjusted font size */
+	border-radius: 5px;
+	/* border: 1px solid #ddd;*/
+	width: 80px;
+}
+
+/* Position for Delete Workcentre X */
+.delete-wc-button {
+	margin-left: 5px;
+}
+
+/* Scrollable workcentres container */
+#workcentres {
+	max-height: 500px;
+	overflow-y: auto;
+	margin-bottom: 20px;
+}
+
+.json-output {
+	width: 98%;
+	height: 200px;
+	margin-top: 15px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	font-family: 'Courier New', monospace;
+	white-space: pre-wrap;
+	background-color: #f7f9fc;
+	overflow-y: auto;
+}
+
+.readonly-input::after {
+	content: ' (Computed)';
+	color: #888;
+	border: 1px solid #ddd !important;
+}
+
+/* Style for smaller CT and VAT text */
+.ct-vat-text {
+	font-size: 0.6rem; /* Makes the font smaller */
+	font-weight: normal; /* Optional adjustment */
+}
+
+/* If these are specific boxes for CT and VAT */
+.ct-box, .vat-box {
+	font-size: 0.8rem;
+	/* Or any other smaller size that suits your design */
+}
+
+/* If you are using a more specific class for just the text inside these boxes */
+.ct-text, .vat-text {
+	font-size: 0.8rem; /* Smaller text size */
+}
+
+/* General style for the task box */
+.task-box {
+	position: relative; /* Needed for absolute positioning of the circles */
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	margin: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Green circle for 'A' */
+.circle.green {
+	width: 30px;
+	height: 30px;
+	background-color: green;
+	color: white;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	font-size: 16px;
+}
+
+/* Red circle for 'M' */
+.circle.red {
+	width: 30px;
+	height: 30px;
+	background-color: red;
+	color: white;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	font-size: 16px;
+}
+
+/* Style for task name text */
+.task-box p {
+	font-size: 14px;
+	text-align: center;
+	margin-top: 40px;
+}
+
+/* Styling for individual buttons */
+.add-workcentre-btn {
+	padding: 10px 20px; /* Padding for button */
+	background-color: #4CAF50; /* Green background */
+	color: white; /* White text */
+	border: none;
+	border-radius: 5px; /* Rounded corners */
+	cursor: pointer;
+	font-size: 14px; /* Font size */
+	transition: background-color 0.3s ease;
+	/* Smooth background color transition */
+}
+
+/* Hover effect for buttons */
+.add-workcentre-btn:hover {
+	background-color: #45a049;
+}
+
+/* File input style */
+input[type="file"] {
+	display: none;
+}
+
+/* Optional: File input styled button */
+.add-workcentre-btn.import-btn {
+	background-color: #2196F3; /* Blue background for import button */
+}
+
+.add-workcentre-btn.import-btn:hover {
+	background-color: #0b7dda; /* Darker blue on hover */
+}
+
+#automatedCheckbox {
+	margin-right: 0px; /* Space between checkbox and label */
+}
+
+label {
+	font-size: 14px; /* Make the text more readable */
+	color: #333; /* Dark color for text */
+	margin: 0px;
+	width: 10px;
+}
+
+.customer-requirements-box {
+	margin-bottom: 20px;
+	padding: 10px;
+	background-color: #f1f1f1;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	font-family: Arial, sans-serif;
+}
+
+.customer-requirements-box h4 {
+	margin: 0;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#customerRequirementInput {
+	width: 70%;
+	height: 25px;
+	padding: 10px;
+	font-size: 14px;
+	/*	border: 2px solid #007bff; */
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-bottom: 10px;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.input {
+	padding: 1px;
+	font-size: 14px;
+	/*	border: 2px solid #007bff; */
+	height: 25px;
+	border-radius: 5px;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.taskInput {
+	width: 70%;
+	padding: 1px;
+	font-size: 14px;
+	/*	border: 2px solid #007bff; */
+	height: 25px;
+	border-radius: 5px;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.valid-input {
+	border: 2px solid green;
+}
+
+.invalid-input {
+	border: 2px dotted red;
+}
+
+.dragging {
+	opacity: 0.5;
+}
+
+.input-container.dragging, .task.dragging {
+	border: 2px dashed #aaa;
+}
+
+.chart-tooltip {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 8px 10px;
+	border-radius: 5px;
+	font-size: 12px;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+	white-space: pre-wrap;
+	z-index: 9999;
+}
+
+/* Modal Styles */
+/* Modal overlay background */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(30, 30, 30, 0.5);
+	/* semi-transparent dark background */
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+/* Modal content box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 80px auto;
+	padding: 20px 25px;
+	border: 12px solid #6c757d; /* slate colored border */
+	border-radius: 10px;
+	width: 85%;
+	max-width: 700px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+	position: relative;
+	color: #333;
+}
+
+/* Modal Header */
+.modal-content h2 {
+	margin-top: 0;
+	font-size: 14px;
+	color: #333;
+	border-bottom: 1px solid #dee2e6;
+	padding-bottom: 8px;
+	margin-bottom: 16px;
+}
+
+/* Close (X) button */
+.close {
+	color: #aaa;
+	font-size: 24px;
+	font-weight: bold;
+	position: absolute;
+	right: 20px;
+	top: 12px;
+	cursor: pointer;
+	transition: color 0.3s ease;
+}
+
+.close:hover {
+	color: #333;
+}
+
+/* List styles */
+.modal-content ol, .modal-content ul {
+	padding-left: 20px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.modal-content li {
+	margin-bottom: 6px;
+}
+
+/* Step headings */
+.modal-content h3 {
+	font-size: 13px;
+	margin-top: 16px;
+	margin-bottom: 6px;
+	color: #444;
+}
+
+/* CSS Glow Effect */
+.glow-effect {
+	filter: drop-shadow(0 0 6px rgba(0, 123, 255, 0.9)); /* blue glow */
+	transition: filter 0.2s ease-in-out;
+}
+
+.drag-handle {
+  cursor: grab;
+  margin-top: 4px;
+  margin-right:2px;
+  display: inline-flex;
+  vertical-align: top;
+ 
+  
+}
+
+.dot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 4px);
+  grid-gap: 2px;
+}
+
+.dot-grid span {
+  width: 4px;
+  height: 4px;
+  background-color: #555;
+  border-radius: 50%;
+  display: block;
+}
+
+.vertical-dots-handle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 16px; /* fixed width to keep layout consistent */
+  cursor: grab;
+  user-select: none;
+  padding: 4px;
+}
+
+.vertical-dots-handle span {
+  width: 4px;
+  height: 4px;
+  background-color: #555;
+  border-radius: 50%;
+}
